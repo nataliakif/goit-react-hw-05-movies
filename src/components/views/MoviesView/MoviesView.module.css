@@ -1,3 +1,10 @@
+.content {
+  margin: 0 180px;
+}
+.movies__list {
+  list-style: none;
+  font-size: 18px;
+}
 .SearchForm {
   display: flex;
   margin: 20px;

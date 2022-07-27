@@ -1,5 +1,4 @@
 import { useState, useEffect } from 'react';
-import MoviesList from '../../MoviesList/MoviesList';
 import styles from './MoviesView.module.css';
 import { getBySearchQuery } from '../../../services/api-service';
 import { useSearchParams, useLocation, Link } from 'react-router-dom';
@@ -7,7 +6,7 @@ import { useSearchParams, useLocation, Link } from 'react-router-dom';
 export default function MoviesView() {
   const [query, setQuery] = useState('');
   const [movies, setMovies] = useState(null);
-  let [_, setSearchParams] = useSearchParams();
+  let [, setSearchParams] = useSearchParams();
   const { search } = useLocation();
 
   const handleInputChange = e => {
@@ -35,7 +34,7 @@ export default function MoviesView() {
   }, [search]);
   console.log(movies);
   return (
-    <>
+    <div className={styles.content}>
       <form onSubmit={handleSubmit} className={styles.SearchForm}>
         <input
           className={styles.SearchForm_input}
@@ -52,7 +51,20 @@ export default function MoviesView() {
         </button>
       </form>
 
-      {movies && <MoviesList movies={movies} />}
-    </>
+      {movies && movies.length > 0 && (
+        <>
+          <ul className={styles.movies__list}>
+            {movies.map(
+              ({ id, original_title }) =>
+                original_title && (
+                  <li key={id}>
+                    <Link to={`/movies/${id}`}>{original_title}</Link>
+                  </li>
+                )
+            )}
+          </ul>
+        </>
+      )}
+    </div>
   );
 }

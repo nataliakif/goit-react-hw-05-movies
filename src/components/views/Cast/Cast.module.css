@@ -1,0 +1,11 @@
+.profile_image {
+  width: 120px;
+}
+.cast__list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+.cast__item {
+  margin-right: 10px;
+}

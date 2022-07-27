@@ -1,27 +1,26 @@
 import { Routes, Route } from 'react-router-dom';
-import { useState } from 'react';
-import AppBar from './AppBar/AppBar';
-import HomeView from './views/HomeView';
-import MoviesView from './views/MoviesView/MoviesView';
+import { lazy, Suspense } from 'react';
+import Navigation from './Navigation/Navigation';
 import NotFoundView from './views/NotFoundView';
-import MovieDetailsView from './views/MoviesDetailsView/MovieDetailsView';
-
+const HomeView = lazy(() => import('../components/views/HomeView'));
+const MoviesView = lazy(() =>
+  import('../components/views/MoviesView/MoviesView')
+);
+const MovieDetailsView = lazy(() =>
+  import('../components/views/MoviesDetailsView/MovieDetailsView')
+);
 export const App = () => {
-  // const Status = {
-  //   IDLE: 'idle',
-  //   PENDING: 'pending',
-  //   RESOLVED: 'resolved',
-  //   REJECTED: 'rejected',
-  // };
   return (
     <>
-      <AppBar></AppBar>
-      <Routes>
-        <Route path="/" element={<HomeView />}></Route>
-        <Route path="/movies" element={<MoviesView />} />
-        <Route path="*" element={<NotFoundView />} />
-        <Route path="/movies/:movieId/" element={<MovieDetailsView />} />
-      </Routes>
+      <Navigation />
+      <Suspense fallback={<>loading...</>}>
+        <Routes>
+          <Route path="/" element={<HomeView />} />
+          <Route path="/movies" element={<MoviesView />} />
+          <Route path="/movies/:movieId/*" element={<MovieDetailsView />} />
+          <Route path="*" element={<NotFoundView />} />
+        </Routes>
+      </Suspense>
     </>
   );
 };

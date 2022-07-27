@@ -3,6 +3,7 @@ const API_KEY = '03b99d578651e9a3ce5c6cc1a058aad2';
 
 async function fetchWithErrorHandling(url = '', config = {}) {
   const response = await fetch(url, config);
+  console.log(response);
   return response.ok
     ? await response.json()
     : Promise.reject(new Error('Not Found'));
@@ -19,7 +20,7 @@ function getTrending() {
   );
 }
 function getMovieDetails(id) {
-  return fetchWithErrorHandling(`${BASE_URL}/movie/${id}?api_key=${API_KEY}`);
+  return fetchWithErrorHandling(`${BASE_URL}movie/${id}?api_key=${API_KEY}`);
 }
 function getMovieCredits(id) {
   return fetchWithErrorHandling(
