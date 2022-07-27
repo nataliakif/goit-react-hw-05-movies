@@ -1,6 +1,6 @@
 .menu {
   display: flex;
-  justify-content: start;
+
   padding: 20px 180px;
   border-bottom: 1px solid #262626;
 }
@@ -44,9 +44,9 @@
   transform: scaleY(1);
   opacity: 1;
 }
-/* .activeLink {
+.activeLink {
   color: #fff;
   font-weight: 700;
   padding: 13px 20px;
   background-color: #262626;
-} */
+}
