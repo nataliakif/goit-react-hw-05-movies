@@ -1,0 +1,73 @@
+.film__card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 42px 30px 41px 20px;
+}
+
+.film__title {
+  margin-bottom: 20px;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.15;
+}
+
+.info__wrapper {
+  width: 50%;
+  margin-left: 32px;
+}
+.image {
+  width: 375px;
+  height: 478px;
+}
+
+.image__wrapper {
+  border-radius: 5px;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+
+.film__votes {
+  display: inline-flex;
+}
+
+tbody {
+  display: block;
+  margin-bottom: 20px;
+}
+
+tr {
+  display: flex;
+  margin-bottom: 10px;
+}
+.param__title {
+  color: #8c8c8c;
+  width: 105px;
+  @media screen and (min-width: 1024px) {
+    width: 150px;
+  }
+}
+.param__value {
+  width: 135px;
+  @media screen and (min-width: 1024px) {
+    width: 246px;
+  }
+}
+
+.film__owervier {
+  margin-bottom: 20px;
+}
+
+.param__value-vote {
+  margin-right: 3px;
+  border-radius: 5px;
+  width: 36px;
+  height: 16px;
+  line-height: 1.17;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+  background: orange;
+  color: #fff;
+}
